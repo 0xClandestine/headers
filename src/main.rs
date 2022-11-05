@@ -1,22 +1,19 @@
 use std::env;
-
-use clipboard::{ClipboardContext, ClipboardProvider};
+use colored::Colorize;
+use clipboard_anywhere::set_clipboard;
+use inflector::Inflector;
 
 fn main() {
     let input = env::args().collect::<Vec<String>>()[1..].join(" ");
 
     let output = format!(
-        "{}\n{}{}{}\n{}",
-        "    /*//////////////////////////////////////////////////////////////",
-        "    ",
-        (0..(64 - input.len()) / 2).map(|_| " ").collect::<String>(),
-        input.to_uppercase(),
-        "    //////////////////////////////////////////////////////////////*/"
+        "{}\n{}{}\n{}",
+        "    /// -----------------------------------------------------------------------",
+        "    /// ", input.to_title_case(),
+        "    /// -----------------------------------------------------------------------"
     );
 
-    println!("{}", output); // Print the header to console.
+    println!("{}", format!("Header saved to clipboard...").yellow());
 
-    let mut ctx: ClipboardContext = ClipboardProvider::new().unwrap();
-
-    ctx.set_contents(output).unwrap(); // Copy the header to clipboard.
+    set_clipboard(&output.to_owned());
 }

@@ -1,31 +1,32 @@
 # headers
 
-Generate perfect code headers every time.
+Generate perfect code headers every time, [Sol-DAO](https://github.com/Sol-DAO) edition.
 
-## Build
+## Installation
 
 You need Rust and Cargo installed on your machine. See the installation guide
 [here](https://doc.rust-lang.org/cargo/getting-started/installation.html).
 
-Then clone the repo and install the CLI globally like this:
-
-```sh
+```
+git clone https://github.com/0xClandestine/headers/
+cd headers
 cargo install --path .
 ```
 
 ## Usage
 
 ```sh
-λ ./headers "testing 123"
+headers "business logic"
+```
+This will copy the header to your clipboard automatically.
+
+```
+/// -----------------------------------------------------------------------
+/// Business Logic
+/// -----------------------------------------------------------------------
 ```
 
-```sh
-/*//////////////////////////////////////////////////////////////
-                           TESTING 123
-//////////////////////////////////////////////////////////////*/
-```
 
-It will also copy the header to your clipboard automatically.
 
 ### With VSCode
 
